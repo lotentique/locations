@@ -19,9 +19,8 @@ def voitures(request):
         ajt=request.POST.get('ajt')
         ajtmodel=request.POST.get('ajtmodel')
         #l'ajout des models
-        if ajtmodel :
+        if ajtmodel=='ajtmodel' :
             modele=request.POST.get('modele')
-            nombre=request.POST.get('nombre')
             coutparjour=request.POST.get('coutparjour')
             marque=request.POST.get('marque')
             modeles=Marques.objects.filter(model=modele)
