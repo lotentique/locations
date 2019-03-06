@@ -1,0 +1,21 @@
+{% extends 'voitures/base.html' %}
+
+{% block containt %}
+    <table border="1px">
+        <tr>
+            <th>NNI</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>telephone</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.nni }}</td>
+            <td>{{ client.nom }}</td>
+            <td>{{ client.prenom }}</td>
+            <td>{{ client.telephone }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

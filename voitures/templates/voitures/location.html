@@ -1,0 +1,54 @@
+{% extends 'voitures/base.html' %}
+{% block containt %}
+    {% if  message  %}
+    <form method="POST" action="{% url 'voitures:locations' %}">
+        {% csrf_token %}
+        <label>NNI ou num permie</label>
+        <input type="number" name="nni"/>
+        <input type="submit" name="validernni" value="valider"/>
+    </form>
+    {% elif mod %}
+        <form method="POST" action="{% url 'voitures:locations' %}">
+            {% csrf_token %}
+            {% if donneclient %}
+                <label>Nom</label>
+                <input type="text" name="nom"/>
+                <label>Prenom</label>
+                <input type="text" name="prenom"/>
+                <label>telephone</label>
+                <input type="number" name="telephone"/>
+            {% endif %}
+            <input type="hidden" name="nni" value="{{ nni }}"/>
+            <label class="control-label">modele</label>
+            <select name="modele">
+                {% for lesmarque in lesmarques %}
+                    <option value="{{ lesmarque.model }}">{{ lesmarque.model }}</option> 
+                {% endfor %}
+            </select>
+            <input type="submit" name="valider" value="valider"/>
+        </form>
+    {% endif %}
+    {% if voiture %}
+    <form method="POST" action="{% url 'voitures:locations' %}">
+        {% csrf_token %}
+        <input type="hidden" name="nni" value="{{ nni }}"/>
+        <input type="hidden" name="nom" value="{{ nom }}"/>
+        <input type="hidden" name="prenom" value="{{ prenom }}"/>
+        <input type="hidden" name="modele" value="{{ modele }}"/>
+        <input type="hidden" name="telephone" value="{{ telephone }}"/>
+        <label class="control-label">nombre de jour</label>
+        <input type="number" name="nbrjour"/>
+        <label class="control-label">les voitures</label>
+        <select name="matricule">
+            {% for levoiture in lesvoitures %}
+                {% if levoiture.etat=='0'}
+                <option value="{{ levoiture.matricule }}">{{ levoiture.matricule }}</option> 
+            {% endfor %}
+        </select>
+        <input type="submit" name="louer" value="louer"/>
+    </form>
+    
+    {% endif %}
+    <b>{{ ten }}</b>
+    
+{% endblock %}

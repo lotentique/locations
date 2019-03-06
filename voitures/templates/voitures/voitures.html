@@ -1,0 +1,87 @@
+{% extends 'voitures/base.html' %}
+{% block message %}
+    {% if message %}
+    <div class="alert alert-{{ type_message }}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4>{{ message }}</h4>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block containt %}
+    <div class="row">
+        <!--formulaire pour l'ajout des modeles-->
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="pannel pannel-default">
+                <div class="pannel-heading">
+                    <h3 class="pannel-title">ajou de modele</h3>
+                </div>
+                <div class="pannel-body">
+                    <form class="form" method="POST" action="{% url 'voitures:mesvoitures' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="control-label">modele</label>
+                            {{ marqueform.modele }}
+                        </div>
+                        <div class="form-group">
+                            <label for="coutparjour" class="control-label">coutparjour</label>
+                            {{ marqueform.coutparjour }}
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">marque</label>
+                            {{ marqueform.marque }}
+                        </div>
+                        <button type="submit" class="btn btn-success" name="ajtmodel">Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--formulaire pour l'ajout des voitures-->
+        <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="pannel pannel-default">
+                    <div class="pannel-heading">
+                        <h3 class="pannel-title">ajou de voiture</h3>
+                    </div>
+                    <div class="pannel-body">
+                        <form class="form" method="POST" action="{% url 'voitures:mesvoitures' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="control-label">matricule</label>
+                                {{ voitureform.matricule }}
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">modele</label>
+                                <select name="modele">
+                                    {% for lesmarque in lesmarques %}
+                                        <option value="{{ lesmarque.model }}">{{ lesmarque.model }}</option> 
+                                    {% endfor %}
+                                </select>
+
+                            </div>
+                            <input type="hidden" value="0" name="etat"/>
+                            <button type="submit" class="btn btn-success" name="ajt">Ajouter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <table border="1px" > 
+                <tr>
+                    <th>Matricule</th>
+                    <th>Modele</th>
+                    <th>Date arriver</th>
+                    <th>cout par jour</th>
+                </tr>
+                {% for levoiture in lesvoitures %}
+                    <tr>
+                        <td>{{ levoiture.matricule }}</td>
+                        <td>{{ levoiture.model.model }}</td>
+                        <td>{{ levoiture.date_ajout }}</td>
+                        <td>{{ levoiture.model.coutparjour }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+{% endblock %}

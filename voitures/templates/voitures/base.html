@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test2</title>
+    {% load static %}
+	  <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="{% static 'voitures/css/bootstrap-animation.min.css' %}">
+       <link rel="stylesheet" href="{% static 'voitures/css/bootstrap.min.css' %}">
+       <link rel="stylesheet" href="{% static 'voitures/css/bootstrap-theme.min.css' %}">
+       <link rel="stylesheet" href="{% static 'voitures/css/bootstrap-toggle.min.css' %}">
+	   <link rel="stylesheet" href="{% static 'voitures/css/style.css' %}" />
+</head>
+<body>
+
+<div class="container-fluid">
+
+<div class="row r">
+      <div class="col-xs-5">
+       L   O  C  A  T  I  O  N 
+      </div>
+      <div class="col-xs-2">
+      <img src="{% static 'voitures/img/v.jpg' %}" class="img-responsive logo"> 
+       D E
+       
+     </div>
+     <div class="col-xs-5">
+         V O I T U R E S
+    </div>
+</div>
+
+<div class="row">
+  <div class="menu2 " >
+   <!-- <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+     <div class="collapse navbar-collapse" >
+      
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> a-propos</a></li>
+        </ul>
+      -->
+     
+    </div>
+    
+    </div>
+  </div>
+</div>
+{% block message %}{% endblock %}
+<div class="row r2">
+  <div class="col-xs-4">
+    <ul class="menu">
+        <li title="ACCEUIL"><a href="{% url 'voitures:acceuil' %}" class="ACCEUIL"></a></li>
+        <li title="CLIENT"><a href="{% url 'voitures:client' %}" class="menu-button    CLIENT"></a></li>
+        <li title="LOCATION"><a href="{% url 'voitures:locations' %}" class="menu-button  LOCATION"></a></li>
+        <li title="VOITURE"><a href="{% url 'voitures:mesvoitures' %}" class="menu-button   VOITURE"></a></li>
+        <li title="ADMISTRATEUR"><a href="#" class="menu-button ADMISTRATEUR"></a></li>
+    </ul>
+  </div>
+  <div class="col-xs-8" style="margin-top: 90px;margin-left:25%;">
+    {% block containt %}{% endblock %}
+  </div>    
+</div>
+
+<script src="{% static 'voitures/js/jquery.min.js' %}"></script>
+<script src="{% static 'voitures/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'voitures/js/bootstrap-toggle.min.js' %}"></script>
+</body>
+</html>

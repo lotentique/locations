@@ -1,0 +1,145 @@
+.r {
+    
+	text-align: center;
+	font-family: bold;
+	font-size: 4vw;
+
+font-family: 'Ubuntu Condensed', sans-serif;
+color: #696969;     /*#00547E;   #DFF0D8;   #04A3ED;  #424558;  #D6E9C6;  #B94A48;  #F2DEDE;  #EED3D7;*/
+text-shadow: 1px 13px 17px  #7FFFD4;
+
+}
+
+.row.r{
+  margin-right:0;
+  margin-left:0;
+  
+}
+.row.r > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+  
+}
+
+
+.logo{
+	position: absolute;
+	
+	top: 0px;
+	z-index: -1;"
+	height: 100px;
+	width: 400px;
+
+}
+/* debut class menu2 */
+.menu2{
+  
+ /*background-color: #424558;*/
+ 
+ border-bottom: 4px solid #04A3ED;
+ width:100%;
+ position: sticky;
+ opacity: 0.9;
+  z-index:12; 
+}
+
+/* fin class menu2 */
+
+/*debut menu */
+.row.r2{
+  margin-right:25%;
+  margin-left:0;
+}
+.row.r2 > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+
+.menu{
+    position: fixed;
+    left: 0;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #f7f7f7;
+    z-index:10;  
+    overflow:hidden;
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
+  
+}
+.menu li a{
+  display: block;
+  height: 5em;
+  width: 5em;
+  line-height: 5em;
+  text-align:center;
+  color: #72739f;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background 0.1s ease-in-out;
+
+}
+.menu li a:before {
+  text-indent: 0em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 1.4em;
+}
+
+.menu li a.ACCEUIL:before {
+   font-family: "Glyphicons Halflings";
+  content: "\e021";
+}
+.menu li a.VOITURE:before {
+   font-family: "Glyphicons Halflings";
+  content:"🚗";
+  
+}
+.menu li a.CLIENT:before {
+   font-family: "Glyphicons Halflings";
+  content: "\e008\e008\e008";
+}
+.menu li a.ADMISTRATEUR:before {
+   font-family: "Glyphicons Halflings";
+  content: "\e008";
+}
+.menu li a.LOCATION:before {
+   font-family: "Glyphicons Halflings";
+  content: "\e032";
+}
+.menu li a:hover {
+  background: #267fdd;
+  color: #fff;
+}
+@media all and (max-width: 479px) {
+  .row.r{
+    position: fixed;
+    background: #f7f7f7;
+  }
+  .menu2{
+    position: fixed;
+    margin-top: 5%;
+  }
+  
+  .container{
+      margin-top:50px;
+  }
+  .menu{
+    margin-top: 5%;
+    height:2.8em;
+    width:100%;
+    overflow: visible;
+  }
+  .menu li{
+      display:inline-block;
+      float:left;
+  }
+  .menu li a{
+    font-size: 8px;
+  } 
+  
+}
