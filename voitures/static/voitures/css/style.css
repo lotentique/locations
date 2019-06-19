@@ -141,5 +141,57 @@ text-shadow: 1px 13px 17px  #7FFFD4;
   .menu li a{
     font-size: 8px;
   } 
-  
 }
+
+.droite {
+  float: right;
+  width: 50%;
+  border-left: 1px dotted black;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.26);
+  border-bottom: 1px solid skyblue;
+  border-radius: 10px;
+}
+
+.gauche .form-group .col-md-6,
+.droite .form-group .col-md-6 {
+  position: static;
+}
+
+.droite .form-group input,
+.droite .form-group select {
+  border: 1px solid skyblue;
+
+}
+
+.gauche .form-group label,
+.droite .form-group label {
+  position: static;
+  margin-top: 8px;
+  margin-left: 20px;
+  color: black;
+  font-family: Times new roman;
+  font-weight: bold;
+
+}
+
+@media all and (min-width: 641px) and (max-width: 1159px) {
+  .gauche {
+    float: none;
+    width: 100%;
+  }
+
+  .gauche .form-group input,
+  .droite .form-group input,
+  .gauche .form-group select,
+  .droite .form-group select {
+    display: inline-block;
+  }
+
+  .droite {
+    float: none;
+    border: none;
+    width: 100%;
+  }
+
+}
+
